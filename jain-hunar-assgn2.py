@@ -105,7 +105,7 @@ class Logistic_Regression:
         return
 
     def predict_Test(self,X,w):
-        with open('jain-hunar-assgn2-out-1.txt', 'w') as file:
+        with open('jain-hunar-assgn2-out.txt', 'w') as file:
             for j in range(len(X)):
                 toWrite = [X[j][0]]
                 featureVector = X[j][1:]+[1]
