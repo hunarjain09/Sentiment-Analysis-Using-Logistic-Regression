@@ -142,6 +142,9 @@ w = myLogisticRegression.gradient_descent(featureVectors,w,0.01,25)
 # TO PRINT WEIGHTS
 # print(w)
 
+### Sample Weghts which resulted into out file ###
+# w = [0.42647049852781754, -1.101624503607614, -0.14033545833592084, 0.040982396735673346, 0.3683736805554476, -0.11866973096837911, -0.008393296726561847]
+
 
 # TO PRINT DEV_SET
 # print(dev_set)
