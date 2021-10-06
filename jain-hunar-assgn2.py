@@ -10,12 +10,12 @@ class Utilities:
 
     def getFeatureVectorsFromCSV(self,fileName):
         with open(fileName,'r') as file_name:
-            featureVectors=  np.genfromtxt('exp2.csv', delimiter=',', dtype=None,encoding=None)
+            featureVectors=  np.genfromtxt(fileName, delimiter=',', dtype=None,encoding=None)
+            featureVectors = list(map(list,featureVectors))
         return featureVectors
 
     def shuffleFeatureVectors(self,featureVectors):
         # rd.seed(30)
-        featureVectors = list(map(list,featureVectors))
         rd.shuffle(featureVectors)
         return featureVectors
 
@@ -133,7 +133,7 @@ w = [0,0,0,0,0,0,0]
 
 # Todo: Remove train_set and replace it with entire feature_vectors.
 myLogisticRegression = Logistic_Regression()
-w = myLogisticRegression.gradient_descent(train_set,w,0.01,25)
+w = myLogisticRegression.gradient_descent(featureVectors,w,0.01,25)
 
 ##################### UTILITIES ########################
 
@@ -148,12 +148,12 @@ w = myLogisticRegression.gradient_descent(train_set,w,0.01,25)
 
 ##################### PREDICTION ON DEV_SET AND PLOTTING ########################
 
-myLogisticRegression.predict_Train(dev_set,w)
-print(myUtilities.filterFinalPredictions(myLogisticRegression.sanityTestList))
-myUtilities.plotLossesAndAccuracies(myLogisticRegression.losses, myLogisticRegression.accuracies)
+# myLogisticRegression.predict_Train(dev_set,w)
+# print(myUtilities.filterFinalPredictions(myLogisticRegression.sanityTestList))
+# myUtilities.plotLossesAndAccuracies(myLogisticRegression.losses, myLogisticRegression.accuracies)
 
 ##################### PREDICTION ON TEST ########################
 
-# testFeatureVectors = myUtilities.getFeatureVectorsFromCSV()
+testFeatureVectors = myUtilities.getFeatureVectorsFromCSV("jain-hunar-assgn2-part2.csv")
 
-# myLogisticRegression.predict_Test(testFeatureVectors,w)
+myLogisticRegression.predict_Test(testFeatureVectors,w)
