@@ -51,7 +51,7 @@ class Logistic_Regression:
         self.accuracies = []
         self.sanityTestList = []
         return
-        
+
     def sigmoid(self,X,w):
         z = np.dot(w,X)
         return 1/(1+np.exp(-(z)))
@@ -118,7 +118,7 @@ class Logistic_Regression:
                 file.write('\t'.join(toWrite) + '\n')
         return
 
-##################### FEATURE_VECTORS ########################
+##################### FEATURE_VECTORS_TRAINING ########################
 
 myUtilities = Utilities()
 featureVectors = myUtilities.getFeatureVectorsFromCSV("jain-hunar-assgn2-part1.csv")
