@@ -86,7 +86,11 @@ file = open(r'c:\Users\hunar\Downloads\CU Boulder Semester 1\CSCI 5832 NLP\Assig
 negReviews = file.readlines()
 file.close()
 
-with open('jain-hunar-assgn2-part1.csv', 'w',newline='') as file:     
+file = open(r'c:\Users\hunar\Downloads\CU Boulder Semester 1\CSCI 5832 NLP\Assignment_1\nlp-env-1\HW2-testset.txt', 'r',encoding="utf8")
+testReviews = file.readlines()
+file.close()
+
+with open('jain-hunar-assgn2-part2.csv', 'w',newline='') as file:     
     write = csv.writer(file)
     
     def addReview(totalReviews,val=None):
@@ -104,6 +108,7 @@ with open('jain-hunar-assgn2-part1.csv', 'w',newline='') as file:
             else:
                 array = list(map(str,[tokens[0],posCount,negCount,existsNo,pronounCount,existsExclamation,wordCount,val]))
             write.writerow(array) 
-    addReview(posReviews,1)
-    addReview(negReviews,0)   
+    # addReview(posReviews,1)
+    # addReview(negReviews,0)
+    addReview(testReviews)   
 
